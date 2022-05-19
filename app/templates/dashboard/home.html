@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+
+{% block content %}
+    {% if request.user.is_authenticated %}
+        <h1>UP Estrategia</h1>
+        Bem vindo <br>
+        <a href="/logouts/">Sair</a>
+        <hr>
+
+        {% if perms.admin.novouser %}
+            <p><h3>SEM ACESSO DASHBOARD</h3></p>
+        {% endif %}
+    
+        {% if perms.admin.cliente1 %}
+        <p><h3>CLIENTE 1</h3></p>
+        <iframe title="Sales and Marketing Sample - Market Share" width="1024" height="804" src="https://app.powerbi.com/view?r=eyJrIjoiMjA5N2QwMWItYjMwYi00ZTU3LWE3MzItNmQ0Y2I5MzYyOWE0IiwidCI6ImNkYzk0ODBhLTAxZTYtNDJjMi1hZDRkLWYwNGU0OWRjNDJkMiJ9" frameborder="0" allowFullScreen="true"></iframe>
+        {% endif %}
+
+        
+        {% if perms.admin.cliente2 %}
+        <p><h3>CLIENTE 2</h3></p>
+        <iframe title="Opportunity Analysis Sample" width="1024" height="960" src="https://app.powerbi.com/view?r=eyJrIjoiNTcxNjI2OWUtZWViZC00N2JlLThjMzMtZWU3Y2ZkMDg1MGQxIiwidCI6ImNkYzk0ODBhLTAxZTYtNDJjMi1hZDRkLWYwNGU0OWRjNDJkMiJ9&pageName=ReportSection" frameborder="0" allowFullScreen="true"></iframe>
+        {% endif %}
+
+        {% if perms.admin.cliente3 %}
+        <p><h3>CLIENTE 3</h3></p>
+        <iframe title="Customer Profitability Sample - Team Scorecard" width="1024" height="804" src="https://app.powerbi.com/view?r=eyJrIjoiMTk1OGU5OTQtNDZmNy00MjUyLWJlZDctZTI5NDU1MjMxNTBiIiwidCI6ImNkYzk0ODBhLTAxZTYtNDJjMi1hZDRkLWYwNGU0OWRjNDJkMiJ9" frameborder="0" allowFullScreen="true"></iframe>
+        {% endif %}
+
+    {% else %}
+        Você não tem acesso a essa área!
+    {% endif %}
+{% endblock %}
